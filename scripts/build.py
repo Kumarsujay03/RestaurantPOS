@@ -21,6 +21,10 @@ PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))
 ENTRY_POINT = os.path.join(PROJECT_ROOT, "restaurant_pos", "app.py")
 VERSION_FILE = os.path.join(SCRIPT_DIR, "version_info.txt")
 CONFIG_FILE = os.path.join(PROJECT_ROOT, "restaurant_pos", "core", "config.py")
+# The .spec file carries the Tcl/Tk 9.0 data-collection logic required for
+# Python 3.14+ (see RestaurantPOS.spec). Build from it so the executable
+# bundles tkinter correctly and does not fail with a missing "_tcl_data".
+SPEC_FILE = os.path.join(PROJECT_ROOT, f"{APP_NAME}.spec")
 
 
 def clean_artifacts():
@@ -38,7 +42,20 @@ def clean_artifacts():
 
 
 def build_command():
-    """Assemble the PyInstaller command."""
+    """Assemble the PyInstaller command.
+
+    Prefer the .spec file when present, since it contains the Tcl/Tk data
+    collection needed for Python 3.14+. Fall back to a direct command-line
+    build only if the spec is missing.
+    """
+    if os.path.exists(SPEC_FILE):
+        return [
+            sys.executable, "-m", "PyInstaller",
+            "--noconfirm",
+            "--clean",
+            SPEC_FILE,
+        ]
+
     cmd = [
         sys.executable, "-m", "PyInstaller",
         "--onefile",
