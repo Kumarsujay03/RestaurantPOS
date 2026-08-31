@@ -1,0 +1,14 @@
+# Runtime dependencies for the Restaurant POS System.
+# Note: tkinter, sqlite3, datetime and pathlib are part of the Python
+# standard library and do not need to be installed via pip.
+
+# PDF bill generation
+reportlab>=3.6.0
+
+# Windows printing support (installed only on Windows)
+pywin32>=300 ; sys_platform == "win32"
+wmi>=1.5.1 ; sys_platform == "win32"
+
+# Optional: only required to build a standalone .exe with PyInstaller.
+# Uncomment the line below if you want to build the executable.
+# pyinstaller>=5.0

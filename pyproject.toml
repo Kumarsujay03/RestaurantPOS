@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "restaurant-pos"
+version = "1.1.0"
+description = "A desktop Point of Sale and billing system for restaurants."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+dependencies = [
+    "reportlab>=3.6.0",
+    "pywin32>=300 ; sys_platform == 'win32'",
+    "wmi>=1.5.1 ; sys_platform == 'win32'",
+]
+
+[project.optional-dependencies]
+build = ["pyinstaller>=5.0"]
+
+[project.scripts]
+restaurant-pos = "restaurant_pos.app:main"
+restaurant-pos-cli = "restaurant_pos.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["restaurant_pos*"]

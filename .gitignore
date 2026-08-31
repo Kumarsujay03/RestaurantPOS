@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller build artifacts
+build/
+dist/
+*.spec
+
+# Packaging artifacts
+*.egg-info/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Databases (generated at runtime)
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated bills (contain customer data)
+bills/*
+!bills/.gitkeep
+
+# IDE / editor
+.idea/
+.vscode/
+*.iml
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Logs and temporary files
+*.log
+*.tmp
