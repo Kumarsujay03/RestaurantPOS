@@ -36,8 +36,8 @@ library and do not need to be installed separately.
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
-cd "Billing System"
+git clone https://github.com/Kumarsujay03/RestaurantPOS.git
+cd RestaurantPOS
 
 # (Optional) create a virtual environment
 python -m venv .venv
