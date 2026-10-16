@@ -1,5 +1,7 @@
 # Restaurant POS & Billing System
 
+<p align="center"><img src="docs/banner.png" alt="Restaurant POS banner" width="100%"></p>
+
 A desktop Point of Sale (POS) and billing application for restaurants, built with
 Python and Tkinter. It supports menu management, order taking, bill generation,
 PDF export, direct printing, expense tracking, and sales reporting. Data is stored
